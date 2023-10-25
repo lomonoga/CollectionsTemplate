@@ -1,9 +1,7 @@
 package ru.naumen.collection.task1;
 
-import ru.naumen.collection.task2.Ticket;
-
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Stream;
 
 /**
  * Дано:
@@ -37,7 +35,14 @@ public class Task1 {
      * Возвращает дубликаты пользователей, которые есть в обеих коллекциях
      */
     public static List<User> findDuplicates(Collection<User> collA, Collection<User> collB) {
-        // TODO
-        return null;
+        Set<User> userHashSet = new HashSet<>();
+        List<User> userList = new LinkedList<>();
+
+        for (var user: Stream.concat(collA.stream(), collB.stream()).toList()) {
+            if (userHashSet.contains(user)) userList.add(user);
+            else userHashSet.add(user);
+        }
+
+        return userList;
     }
 }
