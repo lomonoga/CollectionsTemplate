@@ -30,6 +30,11 @@ import java.util.List;
 public class Task2 {
     private HashMap<Long, AdditionalServices> servicesHashMap;
 
+    /**
+     * ПВозвращает доп услуги по id билета
+     * @param ticket Билет
+     * @return Купленные услуги или их отсутствие
+     */
     public List<String> getServiceByTicket(Ticket ticket) {
         var services = servicesHashMap.get(ticket.getId()).getAllAdditionalServices();
         return services;
