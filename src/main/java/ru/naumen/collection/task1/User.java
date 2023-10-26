@@ -47,7 +47,7 @@ public class User {
     @Override
     public int hashCode() {
         int result = 28 * Objects.hash(username, email);
-        result = (31_181 * result + Arrays.hashCode(passwordHash) + 10_001) % 11_897;
+        result = (31_181 * result + Arrays.hashCode(passwordHash) + 10_001) % 101_897;
         return result;
     }
 }

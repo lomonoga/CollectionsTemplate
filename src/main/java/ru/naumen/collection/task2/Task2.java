@@ -1,5 +1,10 @@
 package ru.naumen.collection.task2;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+
 /**
  * Дано:
  * <pre>
@@ -23,6 +28,16 @@ package ru.naumen.collection.task2;
  * @since 19.10.2023
  */
 public class Task2 {
+    private HashMap<Long, AdditionalServices> servicesHashMap;
 
-    // TODO
+    public List<String> getServiceByTicket(Ticket ticket) {
+        var services = servicesHashMap.get(ticket.getId()).getAllAdditionalServices();
+        return services;
+    }
+
+    public Task2(List<AdditionalServices> servicesList) {
+        for (var service: servicesList) {
+            servicesHashMap.put(service.getIdTicket(), service);
+        }
+    }
 }
