@@ -35,14 +35,14 @@ public class Task1 {
      * Возвращает дубликаты пользователей, которые есть в обеих коллекциях
      */
     public static List<User> findDuplicates(Collection<User> collA, Collection<User> collB) {
-        Set<User> userHashSet = new HashSet<>();
-        List<User> userList = new LinkedList<>();
+        List<User> duplicateUsers = new ArrayList<>();
+        Set<User> setCollA = new HashSet<>(collA);
 
-        for (var user: Stream.concat(collA.stream(), collB.stream()).toList()) {
-            if (userHashSet.contains(user)) userList.add(user);
-            else userHashSet.add(user);
+        for (User user : setCollA) {
+            if (collB.contains(user))
+                duplicateUsers.add(user);
         }
 
-        return userList;
+        return duplicateUsers;
     }
 }
