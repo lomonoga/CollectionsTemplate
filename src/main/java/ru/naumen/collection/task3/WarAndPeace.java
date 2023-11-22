@@ -29,7 +29,7 @@ public class WarAndPeace {
     }
 
     private Map<String, Long> countWordsWithWordParser() {
-        Map<String, Long> wordsMap = new HashMap<>();
+        Map<String, Long> wordsMap = new LinkedHashMap<>();
         WordParser wordParserToWarAndPeace = new WordParser(WAR_AND_PEACE_FILE_PATH);
 
         wordParserToWarAndPeace
@@ -73,7 +73,7 @@ public class WarAndPeace {
             Integer countWords,
             Comparator<? super Map.Entry<String, Long>> comparator
     ) {
-        Queue<Map.Entry<String, Long>> queueWhitTopWords = new PriorityQueue(comparator);
+        Queue<Map.Entry<String, Long>> queueWhitTopWords = new PriorityQueue<>(comparator);
 
         for (Map.Entry<String, Long> entry : dictionaryWords.entrySet()) {
             queueWhitTopWords.offer(entry);

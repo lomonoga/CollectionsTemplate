@@ -23,7 +23,7 @@ import java.util.stream.Stream;
  * <p>Метод должен быть оптимален по производительности.</p>
  * <p>Пользоваться можно только стандартными классами Java SE.
  * Коллекции collA, collB изменять запрещено.</p>
- *
+ * <p>
  * См. {@link User}
  *
  * @author vpyzhyanov
@@ -38,8 +38,8 @@ public class Task1 {
         List<User> duplicateUsers = new ArrayList<>();
         Set<User> setCollA = new HashSet<>(collA);
 
-        for (User user : setCollA) {
-            if (collB.contains(user))
+        for (User user : collB) {
+            if (setCollA.contains(user))
                 duplicateUsers.add(user);
         }
 
